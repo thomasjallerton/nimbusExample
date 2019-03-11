@@ -4,8 +4,7 @@ import annotation.annotations.document.DocumentStore;
 import annotation.annotations.persistent.Attribute;
 import annotation.annotations.persistent.Key;
 
-@DocumentStore
-@DocumentStore(stage = "prod")
+@DocumentStore(stages = {"dev", "prod"})
 public class Person {
 
     @Key

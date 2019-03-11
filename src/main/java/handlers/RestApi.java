@@ -12,19 +12,15 @@ public class RestApi {
 
     private DocumentStoreClient<Person> personStore = ClientBuilder.getDocumentStoreClient(Person.class);
 
-    @HttpServerlessFunction(method = HttpMethod.GET, path = "person")
-    @HttpServerlessFunction(method = HttpMethod.GET, path = "person", stage = "prod")
-    @UsesDocumentStore(dataModel = Person.class)
-    @UsesDocumentStore(dataModel = Person.class, stage = "prod")
+    @HttpServerlessFunction(method = HttpMethod.GET, path = "person", stages = {"dev", "prod"})
+    @UsesDocumentStore(dataModel = Person.class, stages = {"dev", "prod"})
     public Person getPerson(HttpEvent httpEvent) {
         String name = httpEvent.getQueryStringParameters().get("name");
         return personStore.get(name);
     }
 
-    @HttpServerlessFunction(method = HttpMethod.POST, path = "person")
-    @HttpServerlessFunction(method = HttpMethod.POST, path = "person", stage = "prod")
-    @UsesDocumentStore(dataModel = Person.class)
-    @UsesDocumentStore(dataModel = Person.class, stage = "prod")
+    @HttpServerlessFunction(method = HttpMethod.POST, path = "person", stages = {"dev", "prod"})
+    @UsesDocumentStore(dataModel = Person.class, stages = {"dev", "prod"})
     public String addPerson(Person person) {
         personStore.put(person);
         return "Successfully added";
