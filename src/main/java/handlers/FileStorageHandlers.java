@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class FileStorageHandlers {
 
     private final String FILE_UPDATE_TOPIC = "fileUpdates";
-    private final String FILE_BUCKET = "exampleBucket";
+    private final String FILE_BUCKET = "nimbusExampleBucket";
     private NotificationClient notificationClient = ClientBuilder.getNotificationClient(FILE_UPDATE_TOPIC);
     private FileStorageClient fileStorageClient = ClientBuilder.getFileStorageClient(FILE_BUCKET);
 
