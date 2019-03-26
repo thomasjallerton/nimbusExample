@@ -17,12 +17,12 @@ public class Website {
     public String uploadFiles() {
         FileStorageClient websiteStorage = ClientBuilder.getFileStorageClient("NimbusExampleWebsite");
 
-        websiteStorage.saveHtmlFile("index.html",
+        websiteStorage.saveFileWithContentType("index.html",
                 "<html>\n" +
                         "<p>Hello World!</p>\n" +
-                        "<p>Welcome to my website&nbsp;this is my first <strong>s3</strong> static hosted site.</p>\n" +
+                        "<p>This is nimbus example's webpage</p>\n" +
                         "<p>&nbsp;</p>\n" +
-                        "</html>");
+                        "</html>", "text/html");
 
         return "Successfully saved index file";
     }
