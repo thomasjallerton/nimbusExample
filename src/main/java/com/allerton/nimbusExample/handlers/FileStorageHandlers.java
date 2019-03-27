@@ -1,4 +1,4 @@
-package handlers;
+package com.allerton.nimbusExample.handlers;
 
 import annotation.annotations.deployment.AfterDeployment;
 import annotation.annotations.file.FileStorageEventType;

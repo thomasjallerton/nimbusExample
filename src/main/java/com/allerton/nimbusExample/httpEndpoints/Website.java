@@ -1,4 +1,4 @@
-package models;
+package com.allerton.nimbusExample.httpEndpoints;
 
 import annotation.annotations.deployment.AfterDeployment;
 import annotation.annotations.file.FileStorageBucket;

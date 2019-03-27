@@ -1,11 +1,10 @@
-package handlers;
+package com.allerton.nimbusExample.httpEndpoints;
 
 import annotation.annotations.document.UsesDocumentStore;
 import annotation.annotations.function.HttpMethod;
 import annotation.annotations.function.HttpServerlessFunction;
 import clients.ClientBuilder;
 import clients.document.DocumentStoreClient;
-import models.Person;
 import wrappers.http.models.HttpEvent;
 
 public class RestApi {
