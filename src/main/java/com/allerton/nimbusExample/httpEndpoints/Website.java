@@ -7,5 +7,8 @@ import annotation.annotations.file.FileStorageBucket;
         bucketName = "NimbusExampleWebsite",
         staticWebsite = true
 )
-@FileUpload(bucketName = "NimbusExampleWebsite", localPath = "src/website", targetPath = "")
+@FileUpload(bucketName = "NimbusExampleWebsite",
+            localPath = "src/website",
+            targetPath = "",
+            substituteNimbusVariables = true)
 public class Website {}
