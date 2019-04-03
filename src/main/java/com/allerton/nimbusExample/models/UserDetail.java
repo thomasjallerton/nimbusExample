@@ -11,13 +11,13 @@ public class UserDetail {
     private String username = "";
 
     @Attribute
-    private String connectionId = "";
+    private String currentWebsocket;
 
     public UserDetail() {}
 
-    public UserDetail(String username, String connectionId) {
+    public UserDetail(String username, String currentWebsocket) {
         this.username = username;
-        this.connectionId = connectionId;
+        this.currentWebsocket = currentWebsocket;
     }
 
     public String getUsername() {
@@ -28,11 +28,11 @@ public class UserDetail {
         this.username = username;
     }
 
-    public String getConnectionId() {
-        return connectionId;
+    public String getCurrentWebsocket() {
+        return currentWebsocket;
     }
 
-    public void setConnectionId(String connectionId) {
-        this.connectionId = connectionId;
+    public void setCurrentWebsocket(String currentWebsocket) {
+        this.currentWebsocket = currentWebsocket;
     }
 }

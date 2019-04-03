@@ -77,8 +77,10 @@
 
         function onMessage(evt) {
             let messageData = JSON.parse(evt.data);
-            let textnode = document.createTextNode("Received message: " + messageData.message + " from " + messageData.sender);
-            log.appendChild(textnode);
+            let node = document.createElement("LI");
+            let textnode = document.createTextNode("Received message: " + messageData.message + " from " + messageData.sender + "\n");
+            node.appendChild(textnode);
+            log.appendChild(node);
         }
 
         function onError(evt) {
