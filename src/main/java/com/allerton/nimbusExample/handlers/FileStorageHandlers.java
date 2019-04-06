@@ -3,18 +3,23 @@ package com.allerton.nimbusExample.handlers;
 import annotation.annotations.deployment.AfterDeployment;
 import annotation.annotations.file.FileStorageEventType;
 import annotation.annotations.file.UsesFileStorageClient;
+import annotation.annotations.function.BasicServerlessFunction;
 import annotation.annotations.function.FileStorageServerlessFunction;
+import annotation.annotations.function.QueueServerlessFunction;
 import annotation.annotations.notification.UsesNotificationTopic;
 import clients.ClientBuilder;
 import clients.file.FileStorageClient;
 import clients.notification.NotificationClient;
 import clients.notification.Protocol;
 import wrappers.file.models.FileStorageEvent;
+import wrappers.notification.models.NotificationEvent;
+import wrappers.queue.models.QueueEvent;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Calendar;
 import java.util.stream.Collectors;
 
 public class FileStorageHandlers {
@@ -56,5 +61,24 @@ public class FileStorageHandlers {
     public String addSubscription() {
         String id = notificationClient.createSubscription(Protocol.SMS, "+447872646190");
         return "Added subscription with ID: " + id;
+    }
+
+    @QueueServerlessFunction(id = "messageQueue", batchSize = 1)
+    public void consumeQueue(QueueItem item, QueueEvent event) {
+        if (item.priority > 5) {
+            System.out.println("GOT HIGH PRIORITY MESSAGE " + item.messageToProcess);
+        }
+        /* Additional Processing */
+    }
+
+    public class QueueItem {
+        public String messageToProcess;
+        public int priority;
+    }
+
+    @BasicServerlessFunction
+    public long getCurrentTime() {
+        Calendar cal = Calendar.getInstance();
+        return cal.getTimeInMillis();
     }
 }

@@ -21,7 +21,7 @@ public class WebSocketApi {
     private DocumentStoreClient<UserDetail> userDetails = ClientBuilder.getDocumentStoreClient(UserDetail.class);
     private KeyValueStoreClient<String, ConnectionDetail> connectionDetails = ClientBuilder.getKeyValueStoreClient(String.class, ConnectionDetail.class);
 
-    @WebSocketServerlessFunction(routeKey = "$connect")
+    @WebSocketServerlessFunction(topic = "$connect")
     @UsesDocumentStore(dataModel = UserDetail.class)
     @UsesKeyValueStore(dataModel = ConnectionDetail.class)
     public void onConnect(WebSocketEvent event) throws Exception {
@@ -42,7 +42,7 @@ public class WebSocketApi {
         }
     }
 
-    @WebSocketServerlessFunction(routeKey = "$disconnect")
+    @WebSocketServerlessFunction(topic = "$disconnect")
     @UsesDocumentStore(dataModel = UserDetail.class)
     @UsesKeyValueStore(dataModel = ConnectionDetail.class)
     public void onDisconnect(WebSocketEvent event) {
@@ -58,7 +58,7 @@ public class WebSocketApi {
         connectionDetails.delete(event.getRequestContext().getConnectionId());
     }
 
-    @WebSocketServerlessFunction(routeKey = "sendMessage")
+    @WebSocketServerlessFunction(topic = "sendMessage")
     @UsesServerlessFunctionWebSocketClient
     @UsesDocumentStore(dataModel = UserDetail.class)
     @UsesKeyValueStore(dataModel = ConnectionDetail.class)
@@ -76,9 +76,9 @@ public class WebSocketApi {
     @UsesDocumentStore(dataModel = UserDetail.class)
     public void setupBasicUsers() {
         UserDetail thomas = new UserDetail("thomas", null);
-        UserDetail sian = new UserDetail("sian", null);
+        UserDetail bob = new UserDetail("bob", null);
 
         userDetails.put(thomas);
-        userDetails.put(sian);
+        userDetails.put(bob);
     }
 }

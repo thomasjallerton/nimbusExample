@@ -11,7 +11,7 @@ public class UserDetail {
     private String username = "";
 
     @Attribute
-    private String currentWebsocket;
+    private String currentWebsocket = null;
 
     public UserDetail() {}
 

@@ -17,6 +17,8 @@
 
     <article>
 
+        <p>No account? Register <a href="register.html">here</a></p>
+
         <form onsubmit = "connectToServer(); return false;">
             Enter username:  <input type = "text" id = "username" placeholder="username"/>
             <input type="submit" value="Login">
@@ -97,6 +99,8 @@
             let newMessage = {topic: "sendMessage", message: chatMessage, recipient: recipientName};
             websocket.send(JSON.stringify(newMessage));
         }
+
+
 
     </script>
 
