@@ -1,8 +1,8 @@
 package com.allerton.nimbusExample.handlers;
 
-import annotation.annotations.function.DocumentStoreServerlessFunction;
-import annotation.annotations.persistent.StoreEventType;
 import com.allerton.nimbusExample.models.UserDetail;
+import com.nimbusframework.nimbuscore.annotation.annotations.function.DocumentStoreServerlessFunction;
+import com.nimbusframework.nimbuscore.annotation.annotations.persistent.StoreEventType;
 
 public class StoreHandlers {
 

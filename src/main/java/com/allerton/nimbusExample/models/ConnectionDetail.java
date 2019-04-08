@@ -1,9 +1,10 @@
 package com.allerton.nimbusExample.models;
 
-import annotation.annotations.keyvalue.KeyValueStore;
-import annotation.annotations.persistent.Attribute;
 
-@KeyValueStore(keyType = String.class)
+import com.nimbusframework.nimbuscore.annotation.annotations.keyvalue.KeyValueStore;
+import com.nimbusframework.nimbuscore.annotation.annotations.persistent.Attribute;
+
+@KeyValueStore(keyType = String.class, readCapacityUnits = 1, writeCapacityUnits = 1)
 public class ConnectionDetail {
 
     public ConnectionDetail() {}

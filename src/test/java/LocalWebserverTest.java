@@ -1,4 +1,4 @@
-import testing.LocalNimbusDeployment;
+import com.nimbusframework.nimbuscore.testing.LocalNimbusDeployment;
 
 public class LocalWebserverTest {
 

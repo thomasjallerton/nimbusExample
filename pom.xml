@@ -10,9 +10,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.allerton</groupId>
-            <artifactId>nimbus</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>com.nimbusframework</groupId>
+            <artifactId>nimbus-core</artifactId>
+            <version>0.5-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -31,9 +31,9 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>com.allerton</groupId>
+                <groupId>com.nimbusframework</groupId>
                 <artifactId>nimbus-deployment-maven-plugin</artifactId>
-                <version>1.0-SNAPSHOT</version>
+                <version>0.2</version>
                 <configuration>
                     <region>eu-west-1</region>
                     <stage>dev</stage>
@@ -44,11 +44,6 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.5.1</version>
                 <configuration>
-                    <annotationProcessors>
-                        <annotationProcessor>
-                            annotation.processor.NimbusAnnotationProcessor
-                        </annotationProcessor>
-                    </annotationProcessors>
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>

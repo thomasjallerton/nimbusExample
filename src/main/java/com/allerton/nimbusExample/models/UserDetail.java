@@ -1,10 +1,11 @@
 package com.allerton.nimbusExample.models;
 
-import annotation.annotations.document.DocumentStore;
-import annotation.annotations.persistent.Attribute;
-import annotation.annotations.persistent.Key;
 
-@DocumentStore
+import com.nimbusframework.nimbuscore.annotation.annotations.document.DocumentStore;
+import com.nimbusframework.nimbuscore.annotation.annotations.persistent.Attribute;
+import com.nimbusframework.nimbuscore.annotation.annotations.persistent.Key;
+
+@DocumentStore(readCapacityUnits = 2, writeCapacityUnits = 2)
 public class UserDetail {
 
     @Key

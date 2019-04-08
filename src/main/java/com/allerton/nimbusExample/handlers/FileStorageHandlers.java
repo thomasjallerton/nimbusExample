@@ -1,19 +1,18 @@
 package com.allerton.nimbusExample.handlers;
 
-import annotation.annotations.deployment.AfterDeployment;
-import annotation.annotations.file.FileStorageEventType;
-import annotation.annotations.file.UsesFileStorageClient;
-import annotation.annotations.function.BasicServerlessFunction;
-import annotation.annotations.function.FileStorageServerlessFunction;
-import annotation.annotations.function.QueueServerlessFunction;
-import annotation.annotations.notification.UsesNotificationTopic;
-import clients.ClientBuilder;
-import clients.file.FileStorageClient;
-import clients.notification.NotificationClient;
-import clients.notification.Protocol;
-import wrappers.file.models.FileStorageEvent;
-import wrappers.notification.models.NotificationEvent;
-import wrappers.queue.models.QueueEvent;
+import com.nimbusframework.nimbuscore.annotation.annotations.deployment.AfterDeployment;
+import com.nimbusframework.nimbuscore.annotation.annotations.file.FileStorageEventType;
+import com.nimbusframework.nimbuscore.annotation.annotations.file.UsesFileStorageClient;
+import com.nimbusframework.nimbuscore.annotation.annotations.function.BasicServerlessFunction;
+import com.nimbusframework.nimbuscore.annotation.annotations.function.FileStorageServerlessFunction;
+import com.nimbusframework.nimbuscore.annotation.annotations.function.QueueServerlessFunction;
+import com.nimbusframework.nimbuscore.annotation.annotations.notification.UsesNotificationTopic;
+import com.nimbusframework.nimbuscore.clients.ClientBuilder;
+import com.nimbusframework.nimbuscore.clients.file.FileStorageClient;
+import com.nimbusframework.nimbuscore.clients.notification.NotificationClient;
+import com.nimbusframework.nimbuscore.clients.notification.Protocol;
+import com.nimbusframework.nimbuscore.wrappers.file.models.FileStorageEvent;
+import com.nimbusframework.nimbuscore.wrappers.queue.models.QueueEvent;
 
 import java.io.BufferedReader;
 import java.io.IOException;

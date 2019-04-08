@@ -1,15 +1,15 @@
 package com.allerton.nimbusExample.httpEndpoints;
 
-import annotation.annotations.document.UsesDocumentStore;
-import annotation.annotations.function.HttpMethod;
-import annotation.annotations.function.HttpServerlessFunction;
-import annotation.annotations.keyvalue.UsesKeyValueStore;
-import clients.ClientBuilder;
-import clients.document.DocumentStoreClient;
-import clients.keyvalue.KeyValueStoreClient;
 import com.allerton.nimbusExample.models.ConnectionDetail;
 import com.allerton.nimbusExample.models.UserDetail;
-import wrappers.http.models.HttpResponse;
+import com.nimbusframework.nimbuscore.annotation.annotations.document.UsesDocumentStore;
+import com.nimbusframework.nimbuscore.annotation.annotations.function.HttpMethod;
+import com.nimbusframework.nimbuscore.annotation.annotations.function.HttpServerlessFunction;
+import com.nimbusframework.nimbuscore.annotation.annotations.keyvalue.UsesKeyValueStore;
+import com.nimbusframework.nimbuscore.clients.ClientBuilder;
+import com.nimbusframework.nimbuscore.clients.document.DocumentStoreClient;
+import com.nimbusframework.nimbuscore.clients.keyvalue.KeyValueStoreClient;
+import com.nimbusframework.nimbuscore.wrappers.http.models.HttpResponse;
 
 import java.util.List;
 import java.util.Map;

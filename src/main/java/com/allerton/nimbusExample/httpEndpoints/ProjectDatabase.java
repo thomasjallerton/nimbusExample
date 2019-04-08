@@ -1,7 +1,7 @@
 package com.allerton.nimbusExample.httpEndpoints;
 
-import annotation.annotations.database.DatabaseLanguage;
-import annotation.annotations.database.RelationalDatabase;
+import com.nimbusframework.nimbuscore.annotation.annotations.database.DatabaseLanguage;
+import com.nimbusframework.nimbuscore.annotation.annotations.database.RelationalDatabase;
 
 @RelationalDatabase(
         name = "NimbusExampleDatabase",

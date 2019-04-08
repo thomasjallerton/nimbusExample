@@ -1,19 +1,20 @@
 package com.allerton.nimbusExample.handlers;
 
-import annotation.annotations.deployment.AfterDeployment;
-import annotation.annotations.document.UsesDocumentStore;
-import annotation.annotations.function.WebSocketServerlessFunction;
-import annotation.annotations.keyvalue.UsesKeyValueStore;
-import annotation.annotations.websocket.UsesServerlessFunctionWebSocketClient;
-import clients.ClientBuilder;
-import clients.document.DocumentStoreClient;
-import clients.keyvalue.KeyValueStoreClient;
-import clients.websocket.ServerlessFunctionWebSocketClient;
+
 import com.allerton.nimbusExample.models.ConnectionDetail;
 import com.allerton.nimbusExample.models.Message;
 import com.allerton.nimbusExample.models.UserDetail;
 import com.allerton.nimbusExample.models.WebSocketMessage;
-import wrappers.websocket.models.WebSocketEvent;
+import com.nimbusframework.nimbuscore.annotation.annotations.deployment.AfterDeployment;
+import com.nimbusframework.nimbuscore.annotation.annotations.document.UsesDocumentStore;
+import com.nimbusframework.nimbuscore.annotation.annotations.function.WebSocketServerlessFunction;
+import com.nimbusframework.nimbuscore.annotation.annotations.keyvalue.UsesKeyValueStore;
+import com.nimbusframework.nimbuscore.annotation.annotations.websocket.UsesServerlessFunctionWebSocketClient;
+import com.nimbusframework.nimbuscore.clients.ClientBuilder;
+import com.nimbusframework.nimbuscore.clients.document.DocumentStoreClient;
+import com.nimbusframework.nimbuscore.clients.keyvalue.KeyValueStoreClient;
+import com.nimbusframework.nimbuscore.clients.websocket.ServerlessFunctionWebSocketClient;
+import com.nimbusframework.nimbuscore.wrappers.websocket.models.WebSocketEvent;
 
 public class WebSocketApi {
 

@@ -1,8 +1,8 @@
 package com.allerton.nimbusExample.httpEndpoints;
 
-import annotation.annotations.deployment.FileUpload;
-import annotation.annotations.file.FileStorageBucket;
 
+import com.nimbusframework.nimbuscore.annotation.annotations.deployment.FileUpload;
+import com.nimbusframework.nimbuscore.annotation.annotations.file.FileStorageBucket;
 
 @FileStorageBucket(
         bucketName = Website.WEBSITE_BUCKET,
