@@ -7,6 +7,7 @@ import com.allerton.nimbusExample.models.UserDetail;
 import com.allerton.nimbusExample.models.WebSocketMessage;
 import com.nimbusframework.nimbuscore.annotation.annotations.deployment.AfterDeployment;
 import com.nimbusframework.nimbuscore.annotation.annotations.document.UsesDocumentStore;
+import com.nimbusframework.nimbuscore.annotation.annotations.function.EnvironmentVariable;
 import com.nimbusframework.nimbuscore.annotation.annotations.function.WebSocketServerlessFunction;
 import com.nimbusframework.nimbuscore.annotation.annotations.keyvalue.UsesKeyValueStore;
 import com.nimbusframework.nimbuscore.annotation.annotations.websocket.UsesServerlessFunctionWebSocketClient;
@@ -63,6 +64,7 @@ public class WebSocketApi {
     @UsesServerlessFunctionWebSocketClient
     @UsesDocumentStore(dataModel = UserDetail.class)
     @UsesKeyValueStore(dataModel = ConnectionDetail.class)
+    @EnvironmentVariable(key = "IMPORTANT", value = "VALUE", testValue = "NOTVALUE")
     public void onMessage(WebSocketMessage message, WebSocketEvent event) {
         UserDetail userDetail = userDetails.get(message.getRecipient());
         ConnectionDetail connectionDetail = connectionDetails.get(event.getRequestContext().getConnectionId());
