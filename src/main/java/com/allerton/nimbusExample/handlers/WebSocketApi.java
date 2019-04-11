@@ -79,7 +79,7 @@ public class WebSocketApi {
     @UsesDocumentStore(dataModel = UserDetail.class)
     public void setupBasicUsers() {
         UserDetail thomas = new UserDetail("thomas", null);
-        UserDetail bob = new UserDetail("bob", null);
+        UserDetail bob = new UserDetail("sian", null);
 
         userDetails.put(thomas);
         userDetails.put(bob);

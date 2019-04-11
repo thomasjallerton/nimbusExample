@@ -33,7 +33,7 @@
             <plugin>
                 <groupId>com.nimbusframework</groupId>
                 <artifactId>nimbus-deployment-maven-plugin</artifactId>
-                <version>0.2</version>
+                <version>0.3</version>
                 <configuration>
                     <region>eu-west-1</region>
                     <stage>dev</stage>
@@ -59,7 +59,7 @@
                             <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <outputFile>target/lambda.jar</outputFile>
+                            <outputFile>target/functions.jar</outputFile>
                         </configuration>
                     </execution>
                 </executions>

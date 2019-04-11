@@ -3,12 +3,11 @@ package com.allerton.nimbusExample.handlers;
 import com.nimbusframework.nimbuscore.annotation.annotations.deployment.AfterDeployment;
 import com.nimbusframework.nimbuscore.annotation.annotations.file.FileStorageEventType;
 import com.nimbusframework.nimbuscore.annotation.annotations.file.UsesFileStorageClient;
-import com.nimbusframework.nimbuscore.annotation.annotations.function.BasicServerlessFunction;
-import com.nimbusframework.nimbuscore.annotation.annotations.function.FileStorageServerlessFunction;
-import com.nimbusframework.nimbuscore.annotation.annotations.function.QueueServerlessFunction;
+import com.nimbusframework.nimbuscore.annotation.annotations.function.*;
 import com.nimbusframework.nimbuscore.annotation.annotations.notification.UsesNotificationTopic;
 import com.nimbusframework.nimbuscore.clients.ClientBuilder;
 import com.nimbusframework.nimbuscore.clients.file.FileStorageClient;
+import com.nimbusframework.nimbuscore.clients.function.BasicServerlessFunctionClient;
 import com.nimbusframework.nimbuscore.clients.notification.NotificationClient;
 import com.nimbusframework.nimbuscore.clients.notification.Protocol;
 import com.nimbusframework.nimbuscore.wrappers.file.models.FileStorageEvent;
@@ -62,22 +61,22 @@ public class FileStorageHandlers {
         return "Added subscription with ID: " + id;
     }
 
-    @QueueServerlessFunction(id = "messageQueue", batchSize = 1)
-    public void consumeQueue(QueueItem item, QueueEvent event) {
-        if (item.priority > 5) {
-            System.out.println("GOT HIGH PRIORITY MESSAGE " + item.messageToProcess);
-        }
-        /* Additional Processing */
-    }
-
-    public class QueueItem {
-        public String messageToProcess;
-        public int priority;
-    }
-
     @BasicServerlessFunction
     public long getCurrentTime() {
         Calendar cal = Calendar.getInstance();
         return cal.getTimeInMillis();
+    }
+
+    @HttpServerlessFunction(path="files", method = HttpMethod.POST)
+    @UsesBasicServerlessFunctionClient
+    @UsesFileStorageClient(bucketName = FILE_BUCKET)
+    public String newFile(String contents) {
+        BasicServerlessFunctionClient functionClient = ClientBuilder.getBasicServerlessFunctionClient();
+        FileStorageClient fileClient = ClientBuilder.getFileStorageClient(FILE_BUCKET);
+
+        String fileName = functionClient.invoke(FileStorageHandlers.class, "getCurrentTime", long.class).toString();
+
+        fileClient.saveFile(fileName + ".txt", contents);
+        return "Successfully saved file";
     }
 }
