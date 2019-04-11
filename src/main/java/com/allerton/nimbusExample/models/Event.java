@@ -24,6 +24,15 @@ public class Event {
         return Objects.hash(id, name, numberInterested);
     }
 
+    @Override
+    public String toString() {
+        return "Event{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", numberInterested=" + numberInterested +
+                '}';
+    }
+
     @Key
     private String id;
 
@@ -36,8 +45,9 @@ public class Event {
 
     public Event() {}
 
-    public Event(String name) {
+    public Event(String name, String id) {
         this.name = name;
+        this.id = id;
     }
 
     public void addInterested() {

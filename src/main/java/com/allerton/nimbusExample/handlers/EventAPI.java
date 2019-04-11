@@ -19,6 +19,7 @@ public class EventAPI {
     @UsesDocumentStore(dataModel = Event.class)
     public Event getEvent(HttpEvent httpRequest) {
         String id = httpRequest.getPathParameters().get("id");
+        System.out.println("GETTING EVENT WITH ID " + id);
         return events.get(id);
     }
 
@@ -32,8 +33,21 @@ public class EventAPI {
     }
 
     @HttpServerlessFunction(
+            path = "event/{id}",
+            method = HttpMethod.POST)
+    @UsesDocumentStore(dataModel = Event.class)
+    public String newEventWithId(String name, HttpEvent request) {
+        String id = request.getPathParameters().get("id");
+        System.out.println(id);
+        Event newEvent = new Event(name, id);
+        events.put(newEvent);
+        return "Successfully created event " + newEvent;
+    }
+
+    @HttpServerlessFunction(
             path = "event/{id}/interest",
             method = HttpMethod.POST)
+    @UsesDocumentStore(dataModel = Event.class)
     public String addInterest(HttpEvent httpRequest) {
         String id = httpRequest.getPathParameters().get("id");
         Event event = events.get(id);
