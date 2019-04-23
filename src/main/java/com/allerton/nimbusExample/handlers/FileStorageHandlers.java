@@ -32,7 +32,6 @@ public class FileStorageHandlers {
     @UsesFileStorageClient(bucketName = FILE_BUCKET)
     public void newObject(FileStorageEvent event) {
         String message = "New file added: " + event.getKey() + " with size " + event.getSize() + " bytes";
-
         String result;
         if (event.getSize() < 10000 && event.getKey().endsWith(".txt")) {
             InputStream file = fileStorageClient.getFile(event.getKey());

@@ -1,6 +1,5 @@
 package com.allerton.nimbusExample.handlers;
 
-import com.allerton.nimbusExample.models.Event;
 import com.nimbusframework.nimbuscore.annotation.annotations.document.UsesDocumentStore;
 import com.nimbusframework.nimbuscore.annotation.annotations.function.HttpMethod;
 import com.nimbusframework.nimbuscore.annotation.annotations.function.HttpServerlessFunction;
@@ -10,12 +9,9 @@ import com.nimbusframework.nimbuscore.wrappers.http.models.HttpEvent;
 
 public class EventAPI {
 
-    private DocumentStoreClient<Event> events =
-            ClientBuilder.getDocumentStoreClient(Event.class);
+    private DocumentStoreClient<Event> events = ClientBuilder.getDocumentStoreClient(Event.class);
 
-    @HttpServerlessFunction(
-            path = "event/{id}",
-            method = HttpMethod.GET)
+    @HttpServerlessFunction(path = "event/{id}", method = HttpMethod.GET)
     @UsesDocumentStore(dataModel = Event.class)
     public Event getEvent(HttpEvent httpRequest) {
         String id = httpRequest.getPathParameters().get("id");
@@ -23,18 +19,14 @@ public class EventAPI {
         return events.get(id);
     }
 
-    @HttpServerlessFunction(
-            path = "event",
-            method = HttpMethod.POST)
+    @HttpServerlessFunction(path = "event", method = HttpMethod.POST)
     @UsesDocumentStore(dataModel = Event.class)
     public String newEvent(Event newEvent) {
         events.put(newEvent);
         return "Successfully created event";
     }
 
-    @HttpServerlessFunction(
-            path = "event/{id}",
-            method = HttpMethod.POST)
+    @HttpServerlessFunction(path = "event/{id}", method = HttpMethod.POST)
     @UsesDocumentStore(dataModel = Event.class)
     public String newEventWithId(String name, HttpEvent request) {
         String id = request.getPathParameters().get("id");

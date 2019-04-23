@@ -1,11 +1,10 @@
-import com.allerton.nimbusExample.models.Event;
+import com.allerton.nimbusExample.handlers.Event;
 import com.nimbusframework.nimbuscore.annotation.annotations.function.HttpMethod;
 import com.nimbusframework.nimbuscore.testing.LocalNimbusDeployment;
 import com.nimbusframework.nimbuscore.testing.document.LocalDocumentStore;
 import com.nimbusframework.nimbuscore.testing.http.HttpRequest;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

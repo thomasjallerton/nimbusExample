@@ -1,4 +1,4 @@
-package com.allerton.nimbusExample.models;
+package com.allerton.nimbusExample.handlers;
 
 import com.nimbusframework.nimbuscore.annotation.annotations.document.DocumentStore;
 import com.nimbusframework.nimbuscore.annotation.annotations.persistent.Attribute;
