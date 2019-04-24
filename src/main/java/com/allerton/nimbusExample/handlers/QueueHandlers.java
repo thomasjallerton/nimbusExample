@@ -16,9 +16,10 @@ public class QueueHandlers {
 
     @AfterDeployment
     @UsesQueue(id = "MessageQueue")
-    public void initialMessage() {
+    public String initialMessage() {
         QueueClient queueClient = ClientBuilder.getQueueClient("MessageQueue");
         queueClient.sendMessageAsJson(new Message("There was a new deployment", "NIMBUS EXAMPLE"));
+        return "Sent message";
     }
 
 }

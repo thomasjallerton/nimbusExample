@@ -11,7 +11,6 @@ import com.nimbusframework.nimbuscore.clients.function.BasicServerlessFunctionCl
 import com.nimbusframework.nimbuscore.clients.notification.NotificationClient;
 import com.nimbusframework.nimbuscore.clients.notification.Protocol;
 import com.nimbusframework.nimbuscore.wrappers.file.models.FileStorageEvent;
-import com.nimbusframework.nimbuscore.wrappers.queue.models.QueueEvent;
 
 import java.io.BufferedReader;
 import java.io.IOException;
